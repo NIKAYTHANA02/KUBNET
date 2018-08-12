@@ -1,0 +1,4 @@
+gcloud container clusters create democluster1 --zone=ap-south1-a --image-type=ubuntu --labels="env=k8s-cluster1" --machine-type=n1-standard-1 --num-nodes=1 --tags=k8s-demo1
+kubectl config view
+kubectl config get-contexts
+kubectl config use-context <context-name>
