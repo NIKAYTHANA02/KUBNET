@@ -1,1 +1,4 @@
 apt-get install kubectl
+##In k8s-cluster created from console
+gcloud container clusters get-credentials testcluster1 \
+      --zone=us-central1-f
