@@ -1,0 +1,29 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+   name: demoingress1
+   labels:
+     role: ingress1
+spec:
+  rules:
+  - host: appgoogle.binarykarma.in
+    http:
+      paths:
+      - backend:
+          serviceName: s1
+          servicePort: 80
+  - host: appyahoo.binarykarma.in
+    http:
+      paths:
+      - backend:
+          serviceName: s1
+          servicePort: 8080
+   
+  - host: appamazon.binarykarma.in
+    http:
+      paths:
+      - backend:
+          serviceName: s1
+          servicePort: 8081
+...

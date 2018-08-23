@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+   name: nginxmulti
+   labels:
+      role: nginxmulti
+spec:
+   replicas: 2
+   selector:
+      matchLabels:
+         role: nginxmulti
+   template:
+      metadata:
+         name: nginxpod
+         labels:
+           role: nginxmulti
+      spec:
+         containers:
+            - name: con1
+              image: linuxkid/multiport-http
+              ports:
+                 - containerPort: 80
+                 - containerPort: 8080
+                 - containerPort: 8081
+...

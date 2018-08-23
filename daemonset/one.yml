@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+    name: zombie
+spec:
+    selector:
+       matchLabels:
+         role: lee
+    template:
+       metadata:
+          labels:
+            role: lee
+       spec:
+          containers:
+           - name: con1
+             image: nginx
+             ports:
+               - containerPort: 80
+...

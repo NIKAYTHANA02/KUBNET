@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: multiport
+spec:
+   replicas: 3
+   strategy:
+      type: Recreate
+   selector:
+     matchLabels:
+        role: multiwebsite
+   template:
+     metadata:
+       labels:
+          role: multiwebsite
+     spec:
+       containers:
+           - name: con1
+             image: linuxkid/multiport-http:v3
+             ports:
+               - containerPort: 80
+               - containerPort: 8080
+               - containerPort: 8081
+...

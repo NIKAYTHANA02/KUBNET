@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: greendeploy
+spec:
+   replicas: 2
+   selector:
+     matchLabels:
+        role: green
+   template:
+     metadata:
+       labels:
+          role: green
+     spec:
+       containers:
+           - name: con1
+             image: linuxkid/multiport-http:v3
+             ports:
+               - containerPort: 80
+               - containerPort: 8080
+               - containerPort: 8081
+...

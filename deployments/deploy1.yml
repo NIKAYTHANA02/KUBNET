@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+   name: deploy1
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+       name: webdeploy
+       version: v1
+   minReadySeconds: 10
+   strategy:
+       type: RollingUpdate
+       rollingUpdate:
+          maxUnavailable: 1
+          maxSurge: 1
+   template:
+      metadata:
+         name: nginx
+         labels:
+            name: webdeploy
+            version: v1
+      spec:
+         containers:
+             - name: con1
+               image: linuxkid/multiport-http:v1
+               ports:
+                  - containerPort: 80
+                  - containerPort: 8080
+                  - containerPort: 8081
+...

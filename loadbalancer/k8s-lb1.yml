@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-service
+spec:
+  selector:
+    role: apache2
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  clusterIP: 10.51.240.2
+  type: LoadBalancer
