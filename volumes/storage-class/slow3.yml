@@ -1,0 +1,9 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: slow3
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-standard
+  zone: asia-south1-a
+  fsType: xfs

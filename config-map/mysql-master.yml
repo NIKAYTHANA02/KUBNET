@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+   name: mysql-configmap2
+spec:
+   containers:
+     - name: con1
+       image: mysql
+       ports:
+         - containerPort: 3306
+       env:
+         - name: MYSQL_ROOT_PASSWORD
+           valueFrom:
+             configMapKeyRef:
+                 name: my1
+                 key: password
+       volumeMounts:
+           - name: mysql-server
+             mountPath: /etc/mysql/conf.d/
+   volumes:
+     - name: mysql-server
+       configMap:
+          name: master
+          items:
+            - key: master
+              path: masterrepl.cnf
+...

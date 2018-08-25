@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+    name: emptydir1
+spec:
+  containers:
+     - name: con1
+       image: nginx
+       ports:
+         - containerPort: 80
+       volumeMounts:
+           - name: cache
+             mountPath: /mnt
+
+     - name: con2
+       image: redis
+       ports:
+         - containerPort: 6379
+       volumeMounts:
+         - name: cache1
+           mountPath: /mnt
+  volumes:
+     - name: cache
+       emptyDir: {}
+
+     - name: cache1
+       emptyDir: {}
+...
+

@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+   name: pd4
+   labels:
+     disktype: normal
+spec:
+   containers:
+      - name: con1
+        image: linuxkid/multiport-http:v3
+        ports:
+          - containerPort: 80
+        volumeMounts:
+          - name: pddisk11
+            mountPath: /mnt
+            subPath: abc
+   volumes:
+      - name: pddisk11
+        persistentVolumeClaim:
+           claimName: pv-claim1
+...
