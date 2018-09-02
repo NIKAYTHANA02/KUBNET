@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+    name: network2-rq
+    namespace: bs1
+spec:
+   hard:
+     configmaps: 2
+     services: 2
+     pods: 4
+...
