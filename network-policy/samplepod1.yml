@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+   name: apple
+   labels:
+      app: apple
+spec:
+   containers:
+       - name: con1
+         image: nginx
+         ports:
+            - containerPort: 80
+...
