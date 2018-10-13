@@ -1,0 +1,13 @@
+ QOS(QualityOfService) is of three types: 
+
+  a) For a Pod to be given a QoS class of Guaranteed:
+
+    Every Container in the Pod must have a memory limit and a memory request, and they must be the same.
+    Every Container in the Pod must have a CPU limit and a CPU request, and they must be the same
+
+  b) A Pod is given a QoS class of Burstable if:
+
+    The Pod does not meet the criteria for QoS class Guaranteed.
+    At least one Container in the Pod has a memory or CPU request
+
+  C) For a Pod to be given a QoS class of BestEffort, the Containers in the Pod must not have any memory or CPU limits or requests.
